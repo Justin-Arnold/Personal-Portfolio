@@ -1,17 +1,18 @@
 ---
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-
-const { blok } = Astro.props
+import ProjectListCard from "./ProjectListCard.astro"
+import content from "@/utils/content"
 ---
 
 <div class="flex w-full flex-col items-start justify-center" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="400" data-aos-mirror="true">
     <div class="mb-4 flex w-full items-center gap-2">
-        <h1 class="text-3xl font-bold sm:whitespace-nowrap">{blok.header}</h1>
+        <h1 class="text-3xl font-bold sm:whitespace-nowrap">
+            { content.projectsHeader }
+        </h1>
         <div class="h-[1px] w-full grow rounded bg-gradient-to-r from-secondary to-primary"></div>
     </div>
     <div class="grid w-full grid-cols-1 grid-rows-auto gap-4 overflow-hidden sm:grid-cols-3 sm:grid-rows-1">
-        {blok.projects.map((project: any) => (
-            <StoryblokComponent blok={project} />
+        {content.projects.map((project) => (
+            <ProjectListCard {project} />
         ))}
     </div>
 </div>
