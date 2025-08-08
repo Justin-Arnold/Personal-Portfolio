@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const waveSize = ref({
     'xs': '9',
