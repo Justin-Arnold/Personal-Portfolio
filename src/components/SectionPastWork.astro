@@ -1,0 +1,103 @@
+---
+import content from "@/utils/content"
+---
+<script>
+    document.querySelector('#tab-1-button')!.addEventListener('click', () => switchTab(0));
+    document.querySelector('#tab-2-button')!.addEventListener('click', () => switchTab(1));
+    document.querySelector('#tab-3-button')!.addEventListener('click', () => switchTab(2));
+    document.querySelector('#tab-4-button')!.addEventListener('click', () => switchTab(3));
+    document.querySelector('#tab-5-button')!.addEventListener('click', () => switchTab(4));
+    document.querySelector('#tab-6-button')!.addEventListener('click', () => switchTab(5));
+    document.querySelector('#tab-7-button')!.addEventListener('click', () => switchTab(6));
+
+    function switchTab(tabIndex: number) {
+        let tabButtons = document.getElementsByClassName('tab-button');
+        let tabContents = document.getElementsByClassName('tab-content');
+
+        for (let i = 0; i < tabButtons.length; i++) {
+            if (i === tabIndex) {
+                tabButtons[i].classList.add('active');
+                tabContents[i].classList.add('visible');
+            } else {
+                tabButtons[i].classList.remove('active');
+                tabContents[i].classList.remove('visible');
+            }
+        }
+    }
+</script>
+
+<div class="w-full flex flex-col justify-center items-start" data-aos="fade-up" data-aos-duration="2000" data-aos-offset="400" data-aos-mirror="true">
+    <div class="flex w-full items-center mb-4 gap-2">
+        <h1 class="text-3xl font-bold whitespace-nowrap">
+            { content.jobsHeader }
+        </h1>
+        <div class="bg-gradient-to-r from-blue-400 to-purple-500 h-[1px] rounded grow w-full"></div>
+    </div>
+    <span class=" flex flex-col mb-48">
+        <div class="flex gap-8 flex-col sm:flex-row">
+            <div class="tab-buttons flex sm:flex-col w-fit shrink-0 flex-wrap">
+                { content.jobs.map((job, index) => (
+                    <div 
+                        class={`tab-button ${index === 0 ? 'active' : ''}`} 
+                        id={`tab-${index + 1}-button`}
+                    >
+                        { job.name }
+                    </div>
+                ))  }
+            </div>
+            <div class="tab-contents h-[400px] sm:overflow-y-hidden pl-1">
+                { content.jobs.map((job, index) => (
+                    <div 
+                        class={`tab-content ${index === 0 ? 'visible' : ''}`} 
+                        data-tab={`${index + 1}-content`}
+                    >
+                        <h3 class="text-2xl font-bold">{ job.name }</h3>
+                        <p class="text-slate-400 text-sm">{ job.time }</p>
+                        <div class="text-xs font-regular text-slate-800 flex gap-2 flex-wrap my-2">
+                            { job.skills.map((skill) => (
+                                <span class="chip">{ skill }</span>
+                            )) }
+                        </div>
+                        <ul class="list-disc w-full h-full overflow-y-auto">
+                            { job.tasks.map((desc) => (
+                                <li>{ desc }</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </span>
+</div>
+
+<style>
+    @reference "tailwindcss";
+    .tab-buttons {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .tab-button {
+            padding: 10px;
+            cursor: pointer;
+            /* border: 1px solid #ccc; */
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+            height: 100%;
+        }
+
+        .active {
+            @apply bg-gradient-to-r from-blue-400 to-purple-500 rounded text-white;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        li {
+            margin-left: 16px;
+        }
+</style>

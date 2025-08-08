@@ -1,35 +1,22 @@
 ---
-import AppHead from "../components/AppHead.astro";
-import Header from "../components/Header.astro";
-import AboveTheFold from "../components/HomePageSections/AboveFold.astro";
-import AboutMe from "../components/HomePageSections/AboutMe.astro";
-import PastWork from "../components/HomePageSections/PastWork.astro";
-import Projects from "../components/HomePageSections/Projects.astro";
-import ContactMe from "../components/HomePageSections/ContactMe.astro";
-import Footer from "../components/Footer.astro";
-import { useStoryblokApi } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-
-const storyblokApi = useStoryblokApi()
-
-const { data } = await storyblokApi.get("cdn/stories/home", {
-    version: import.meta.env.MODE === "production" ? "published" : "draft",
-});
-
-const content = data.story.content;
-
-const projectsList = content.body.find((blok: any) => blok.component === 'project_list')
-const heroSection = content.body.find((blok: any) => blok.component === 'hero_section')
+import AppHead from "@/components/AppHead.astro";
+import Header from "@/components/AppHeader.astro";
+import AboveTheFold from "@/components/SectionAboveFold.astro";
+import AboutMe from "@/components/SectionAboutMe.astro";
+import PastWork from "@/components/SectionPastWork.astro";
+import Projects from '@/components/SectionProjects.astro';
+import ContactMe from "@/components/SectionContactMe.astro";
+import Footer from "@/components/AppFooter.astro";
 ---
 <html lang="en">
 	<AppHead></AppHead>
 	<body class="bg-white overflow-x-hidden text-slate-900 dark:bg-base-100 dark:text-white" data-theme="night">
         <Header></Header>
-        <AboveTheFold blok={heroSection}></AboveTheFold>
+        <AboveTheFold></AboveTheFold>
         <section class="wrapper relative z-[10] dark:bg-base-100">
             <AboutMe></AboutMe>
             <PastWork></PastWork>
-            <StoryblokComponent blok={projectsList} />
+            <Projects></Projects>
             <ContactMe></ContactMe>
             <Footer></Footer>
         </section>

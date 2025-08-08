@@ -1,1 +1,11 @@
-<input class="input input-ghost bg-gradient-to-r from-blue-50 to-purple-50 w-full"/>
+---
+const { name, type = "text", placeholder = "", required = false } = Astro.props;
+---
+
+<input 
+    class="input input-ghost text-base-200 focus:text-base-200 bg-gradient-to-r from-blue-50 to-purple-50 w-full"
+    name={name}
+    type={type}
+    placeholder={placeholder}
+    required={required}
+/>

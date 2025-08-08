@@ -1,3 +1,13 @@
-<form class="form-control gap-4 w-full">
+---
+const { name, action, method, target } = Astro.props;
+---
+
+<form 
+    class="form-control flex flex-col gap-4 w-full"
+    name={name}
+    action={action}
+    method={method}
+    target={target}
+>
     <slot />
 </form>
