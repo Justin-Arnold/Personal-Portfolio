@@ -4,6 +4,12 @@ enum ICON_TYPE {
 }
 
 export default {
+    meta: {
+        title: "Justin Arnold | Full Stack Engineer | Portfolio",
+        description: "Explore the portfolio of Justin Arnold, an Full Stack Engineer with expertise in Typescript, Golang, and a wide array of frameworks and technologies. Browse projects, skills, and get in touch!",
+        keywords: 'Full Stack Engineer, Web Development, Software Engineering, Justin Arnold, Programming Portfolio',
+        ogUrl: "http://www.justin-arnold.com"
+    },
     name: "Justin Arnold" ,
     title: "Software Engineer",
     description: "I am passionate about solving problems. Curious by nature and always learning",
