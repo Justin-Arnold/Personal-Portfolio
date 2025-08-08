@@ -1,3 +1,10 @@
-<button class="btn btn-primary border-0 bg-gradient-to-r from-blue-400 to-purple-500 text-white font-semibold">
+---
+const { block = false, type} = Astro.props;
+---
+
+<button 
+    class={'btn btn-primary border-0 bg-gradient-to-r from-blue-400 to-purple-500 text-white font-semiboldw-full} ' + (block ? 'w-full' : '')}
+    type={type}
+>
     <slot />
 </button>

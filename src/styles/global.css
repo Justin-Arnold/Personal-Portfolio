@@ -1,6 +1,15 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, night;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer utilities {
+
+    * {
+        @apply selection:text-white selection:bg-base-100 dark:selection:text-black dark:selection:bg-primary
+    }
 	.wrapper {
         display: grid;
         grid-template-columns:
@@ -19,6 +28,6 @@
 
 @layer components {
     .chip {
-        @apply p-2 bg-slate-50 rounded text-xs
+        @apply p-2 bg-slate-100 rounded text-xs
     }
 }

@@ -1,1 +1,10 @@
-<textarea class="textarea textarea-ghost bg-gradient-to-r from-blue-50 to-purple-50 w-full"/>
+---
+const { name, placeholder = "", required = false } = Astro.props;
+---
+
+<textarea 
+    class="textarea textarea-ghost text-base-200 focus:text-base-200 bg-gradient-to-r from-blue-50 to-purple-50 w-full"
+    name={name}
+    placeholder={placeholder}
+    required={required}
+/>

@@ -22,20 +22,20 @@ import BaseButton from "@/components/BaseButton.astro";
         <BaseForm name="contact" action="https://formspree.io/f/xoqozqqe" method="POST">
             <BaseLabel>
                 Name
-                <BaseInputText name="name" placeholder="Your name here" required />
+                <BaseInputText name="name" placeholder="Justin Arnold" required />
             </BaseLabel>
 
             <BaseLabel>
                 Email
-                <BaseInputText name="email" type="email" required/>
+                <BaseInputText name="email" type="email" placeholder="hello@justin-arnold.com" required/>
             </BaseLabel>
 
             <BaseLabel>
                 Message
-                <BaseTextarea name="body" class="p-2 rounded bg-gradient-to-r from-blue-50 to-purple-50 h-[200px] mb-4 dark:text-black w-full"/>
+                <BaseTextarea name="body" placeholder="Say Hello!" class="p-2 rounded bg-gradient-to-r from-blue-50 to-purple-50 h-[200px] mb-4 w-full"/>
             </BaseLabel>
 
-            <BaseButton type="submit">Send</button>
+            <BaseButton type="submit" block>Send</button>
         </form>
     </span>
 </div>

@@ -11,7 +11,7 @@ export default {
         ogUrl: "http://www.justin-arnold.com"
     },
     name: "Justin Arnold" ,
-    title: "Software Engineer",
+    title: "Software Engineer & Mentor",
     description: "I am passionate about solving problems. Curious by nature and always learning",
     callToAction: "Get In Touch",
     projectsHeader: "These are some of my recent projects",
