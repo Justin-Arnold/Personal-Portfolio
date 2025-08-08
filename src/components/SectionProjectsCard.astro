@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+    project: {
+        name: string;
+        description: string;
+        technologies: string[];
+        links: {
+            icon: string;
+            url: string;
+        }[];
+    };
+}
+
+const { project } = Astro.props
+---
+
+<div class="card bg-base-content dark:bg-neutral shadow-md h-[]">
+    <div class="card-body">
+        <span class="card-title">
+            { project.name }
+        </span>
+        <p class="grow-0 font-thin">
+            { project.description }
+        </p>
+        <div class="flex flex-wrap gap-2 text-slate-800 mb-auto">
+            { project.technologies.map((technology) => (
+                <span class="chip bg-gradient-to-l from-primary to-secondary">
+                    { technology }
+                </span>
+            ))}
+        </div>
+        <div class="card-actions justify-end">
+            <div class="flex justify-end gap-2">
+                { project.links.map((link => (
+                    <a href={link.url}>
+                        <Icon class="hover:scale-110" size="32px" name={link.icon} />
+                    </a> 
+                )))}
+            </div>
+        </div>
+    </div>
+</div>

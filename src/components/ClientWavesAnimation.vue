@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import Wave from './Wave.vue'
-import { defineProps, computed, ref, onMounted } from 'vue'
+import Wave from './ClientWaves.vue'
+import { ref, onMounted } from 'vue'
 
 const waveWrapper = ref(null)
 const wave1 = ref(null)
