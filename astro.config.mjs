@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
 import vue from "@astrojs/vue";
 import mkcert from 'vite-plugin-mkcert'
 import tailwindcssNesting from 'tailwindcss/nesting';
@@ -7,6 +6,7 @@ import { squooshImageService } from "astro/config";
 import storyblok from '@storyblok/astro';
 import vercelStatic from '@astrojs/vercel/static';
 import { loadEnv } from "vite";
+import tailwindcss from '@tailwindcss/vite'
 
 const { STORYBLOK_TOKEN } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
@@ -14,7 +14,10 @@ export default defineConfig({
     output: 'static',
     adapter: vercelStatic(),
     vite: {
-        plugins: [mkcert()],
+        plugins: [
+            mkcert(),
+            tailwindcss()
+        ],
         server: {
             https: true
         },
