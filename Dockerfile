@@ -27,4 +27,4 @@ ENV PORT=4321
 # Just convention, not required
 EXPOSE 4321
 
-CMD bun run preview --port $PORT --host $HOST
+CMD bun run preview --port $PORT --host $HOST --allowed-hosts justin-arnold.com
