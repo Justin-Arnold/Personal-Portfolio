@@ -6,7 +6,10 @@ export default defineConfig({
     vite: {
         plugins: [
             tailwindcss()
-        ]
+        ],
+        preview: {
+            allowedHosts: ['localhost', 'justin-arnold.com']
+        },
     },
     integrations: [vue()]
 });
